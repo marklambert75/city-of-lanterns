@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e1218">
+  <title>Beneath the City of Lanterns</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="City of Lanterns">
+  <style>
+    /* Minimal CSS inline for immediate render; rest in style.css */
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game">
+    <canvas id="view" width="720" height="405"></canvas>
+    <div id="hud">
+      <div id="party"></div>
+      <div id="status"></div>
+      <div id="hint"></div>
+    </div>
+    <div id="controls">
+      <div class="dpad">
+        <button class="btn" data-action="turn-left">⟲</button>
+        <button class="btn" data-action="step-forward">▲</button>
+        <button class="btn" data-action="turn-right">⟳</button>
+        <button class="btn" data-action="step-back">▼</button>
+      </div>
+      <div class="actions">
+        <button class="btn wide" data-action="lantern">Lantern</button>
+        <button class="btn" data-action="menu">Menu</button>
+        <button class="btn" data-action="save">Save</button>
+      </div>
+    </div>
+
+    <div id="overlay" class="hidden"></div>
+
+    <div id="battle" class="hidden">
+      <div id="battle-log"></div>
+      <div id="battle-enemy"></div>
+      <div id="battle-party"></div>
+      <div id="battle-actions">
+        <button class="btn" data-bact="attack">Attack</button>
+        <button class="btn" data-bact="skill">Skill</button>
+        <button class="btn" data-bact="item">Item</button>
+        <button class="btn" data-bact="light">Light</button>
+        <button class="btn" data-bact="flee">Flee</button>
+      </div>
+    </div>
+
+    <div id="merchant" class="hidden">
+      <div id="merchant-name"></div>
+      <div id="merchant-stock"></div>
+      <div id="merchant-inv"></div>
+      <div class="actions">
+        <button class="btn" data-merchant="buy">Buy</button>
+        <button class="btn" data-merchant="sell">Sell</button>
+        <button class="btn" data-merchant="leave">Leave</button>
+      </div>
+    </div>
+
+    <div id="menu" class="hidden">
+      <h2>Menu</h2>
+      <button class="btn wide" data-menu="party">Party</button>
+      <button class="btn wide" data-menu="inventory">Inventory</button>
+      <button class="btn wide" data-menu="close">Close</button>
+      <div id="menu-content"></div>
+    </div>
+  </div>
+  <script type="module" src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>

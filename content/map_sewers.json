@@ -1,0 +1,26 @@
+{
+  "id": "map_sewers",
+  "name": "The Sewers",
+  "width": 12,
+  "height": 12,
+  "start": {
+    "x": 2,
+    "y": 10,
+    "dir": 0
+  },
+  "tiles": [
+    "############",
+    "#..B....#..#",
+    "#.####..#..#",
+    "#.#..#..#..#",
+    "#.#P.#..#..#",
+    "#.#..#..#..#",
+    "#.####..#M.#",
+    "#....E..#..#",
+    "#.S..D..#..#",
+    "#..B....#..#",
+    "#.......T#..",
+    "############"
+  ],
+  "notes": "P = Lantern puzzle (cat silhouette); T = secret door unlocked by P; E = Wisp; M = Ragpicker; S = Shrine; B = battle; D = door."
+}
